@@ -1,0 +1,61 @@
+#logo{
+    display: block;
+    margin: auto;
+    scale: 90%;
+    height: 60%;
+}
+
+
+#login, #pass{
+    display: block;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+#login{
+    margin-top: -15%;
+    position: relative;
+    border: 0;
+    border-bottom: 2px solid grey;
+    outline: none;
+}
+
+#pass{
+    outline: none;
+    border: 0;
+    border-bottom: 2px solid grey;
+
+}
+
+
+
+.box{
+    display: block;
+    margin: auto;
+    height: 500px;
+    width: 30%;
+    background-color: white;
+    border-radius: 5%;
+}
+
+body{
+    background-color: rgb(225, 215, 201);
+}
+
+#buttons {
+    margin: auto;
+    display: block;
+    width: fit-content;
+    background-color: white;
+    font-family: fantasy;
+}
+
+#buttons img {
+    max-width: 50px; 
+    vertical-align: middle;
+    margin-left: 5px; 
+}
+
+#buttons span {
+    vertical-align: middle;
+}
