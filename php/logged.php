@@ -1,6 +1,9 @@
 <?php 
 include('connect.php');
 
+session_start();
+
+
 ?>
 
 
@@ -18,7 +21,7 @@ include('connect.php');
     <title>Document</title>
 </head>
 <body>
-    Vous êtes connecté!
+    <h1>Bienvenue, <?php echo $_SESSION['login'];?></h1>
 </body>
 </html>
 
