@@ -19,9 +19,15 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="logged.css">
 </head>
 <body>
-    <h1>Bienvenue, <?php echo $_SESSION['login'];?></h1>
+    <div class="box">
+        <h1>Bienvenue</h1>    
+        <h2><?php echo $_SESSION['login'];?></h2>
+    </div>
+    <img src="../Tayshift.png" alt="">
+
 </body>
 </html>
 
