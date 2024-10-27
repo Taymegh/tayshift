@@ -1,14 +1,24 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=root");
+$val = "Bonjour";
 
-$dbconn = pg_connect("host=postgres dbname=trayshift user=postgres password=root");
+if ($dbconn){
+    echo "Connecté a la DB";
+}
 
-if (!$dbconn):
-    echo "Erreur de connexion à la BD";
 
-else:
-    echo "Connexion à la BD réussie";
+$result= pg_query($dbconn, "select * from tayshift");
+while ($row = pg_fetch_object($result)){
+    echo $row->login;
+}
+    
 
-endif;
+
 
 ?>
+
+
