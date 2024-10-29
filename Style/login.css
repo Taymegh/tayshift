@@ -1,0 +1,65 @@
+body{
+    background-color: rgba(247,247,247,255);
+}
+
+
+
+
+@font-face{
+    font-family: 'CaramelFont';
+    src: url('Caramel.ttf')
+}
+
+@font-face {
+    font-family: 'HappySelfie';
+    src: url('HappySelfie.ttf');
+}
+
+h2{
+    font-family: 'CaramelFont';
+    text-align: center;
+    margin-top: -50px;
+    color: rgba(29,67,85,255);
+}
+
+h1{
+    font-family: 'CaramelFont';
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+}
+
+
+.container{
+    position: absolute; 
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+
+.login, .pass{
+    outline: none;
+    border: 2px solid transparent;   
+}
+
+.button{
+    outline: none;
+    border: 2px solid transparent;   
+    background-color: rgba(41,157,211,255);
+    border-radius: 4px;
+    color: rgba(28,66,85,255);
+    font-family: 'HappySelfie';
+    font-size: 15px;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
