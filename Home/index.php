@@ -11,27 +11,22 @@
     <title>Tayshift</title>
 
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="icone.ico">
+    <script src="https://kit.fontawesome.com/4002a2cc72.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style/index.css">
 </head>
 <body>
-<div class="container d-flex flex-column justify-content-center vh-100">
-    <div class="card justify-content-center p-4 border-0">
-        <img class="custom-image rounded mx-auto d-block" src="../Assets/Img/logo.ico" alt="Logo application">
-        
-        <div class="card-body text-center">
-            <h1 class="mb-2">TayShift</h1>
-            <p class="custom-text-color">Transferez vos fichiers, ou que vous soyez</p>
-        </div>
-    </div>  
 
-    <div class="row">
-        <div class="col" style="height: 10px;">
-            <img class="img-fluid" src="../Assets/img/head.svg" alt="head.svg">
-        </div>
-        <div class="col-3"></div>
-    </div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../Assets/Img/logo.ico" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
 
     <script src="../bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>
 </body>
+</html>
 </html>
