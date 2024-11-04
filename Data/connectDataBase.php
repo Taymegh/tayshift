@@ -13,7 +13,8 @@ if (!$conn) {
 $conn->exec("CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE
+    email TEXT NOT NULL UNIQUE,
+    isAdmin INTEGER DEFAULT 0
 )");
 $conn->close();
 
