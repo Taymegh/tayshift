@@ -16,6 +16,7 @@ $conn->exec("CREATE TABLE IF NOT EXISTS users (
     email TEXT NOT NULL UNIQUE,
     isAdmin INTEGER DEFAULT 0
 )");
+
 $conn->close();
 
 ?>

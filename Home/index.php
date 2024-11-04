@@ -20,7 +20,7 @@
           <img src="../Assets/Img/logo.ico" alt="TAYSHIFT Logo">
           
           <div class="card-body">
-              <p class="card-text">Transférez vos fichiers, où que vous soyez.</p>
+              <p class="card-text CaramelFont">Transferez vos fichiers, ou que vous soyez.</p>
 
               <form>
                   <div class="mb-3">
