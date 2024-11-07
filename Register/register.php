@@ -15,7 +15,7 @@
           <img src="../Assets/Img/logo.ico" alt="TAYSHIFT Logo">
           
           <div class="card-body">
-              <p class="card-text CaramelFont">Transferez vos fichiers, ou que vous soyez.</p>
+              <p class="card-text HappySelfieFont">Transferez vos fichiers, ou que vous soyez.</p>
 
               <form>
                 <div class="row mb-3">
@@ -39,7 +39,7 @@
               </form>
 
               <div class="mt-3">
-                  <a href="#">Accueil</a>
+                  <a href="../../Home/index.php">Accueil</a>
               </div>
           </div>
       </div>

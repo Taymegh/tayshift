@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Caramel";
+    src: url(Assets/Fonts/Caramel.ttf);
+}
+@font-face {
+    font-family: "ct";
+    src: url(Assets/Fonts/ct.ttf);
+}
+@font-face {
+    font-family: "HappySelfie";
+    src: url(Assets/Fonts/HappySelfie.ttf);
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.HappySelfieFont {
+    font-family: "HappySelfie";
+    font-size: 18px;
+}
+
+.login-form img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 0;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
