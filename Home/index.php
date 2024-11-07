@@ -20,7 +20,7 @@
           <img src="../Assets/Img/logo.ico" alt="TAYSHIFT Logo">
           
           <div class="card-body">
-              <p class="card-text CaramelFont">Transferez vos fichiers, ou que vous soyez.</p>
+              <p class="card-text HappySelfieFont">Transferez vos fichiers, ou que vous soyez.</p>
 
               <form>
                   <div class="mb-3">
@@ -35,7 +35,7 @@
               </form>
 
               <div class="mt-3">
-                  <a href="../Register/register.php">Créer un compte</a> / <a href="#">Mot de passe oublié</a>
+                  <a href="../Register/register.php">Créer un compte</a> / <a href="../Reset/reset.php">Mot de passe oublié</a>
               </div>
           </div>
       </div>

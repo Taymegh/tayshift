@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Caramel";
+    src: url(Assets/Fonts/Caramel.ttf);
+}
+@font-face {
+    font-family: "ct";
+    src: url(Assets/Fonts/ct.ttf);
+}
+@font-face {
+    font-family: "HappySelfie";
+    src: url(Assets/Fonts/HappySelfie.ttf);
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.HappySelfieFont {
+    font-family: "HappySelfie";
+    font-size: 18px;
+}
