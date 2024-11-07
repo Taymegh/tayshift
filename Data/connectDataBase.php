@@ -18,12 +18,18 @@ $conn->exec("CREATE TABLE IF NOT EXISTS users (
     isAdmin INTEGER DEFAULT 1
 )");
 
+$devPassword = password_hash("User1234", PASSWORD_DEFAULT);
 
-$conn->exec("INSERT OR IGNORE INTO users (id, username, passwd, email, isAdmin)
-             VALUES (1, 'admin', 'User1234', 'admin@gmail.com', 0)");
+$stmt = $conn->prepare("INSERT OR IGNORE INTO users (id, username, passwd, email, isAdmin)
+                        VALUES (:id, :username, :passwd, :email, :isAdmin)");
 
+$stmt->bindValue(':id', 1, SQLITE3_INTEGER);
+$stmt->bindValue(':username', 'admin', SQLITE3_TEXT);
+$stmt->bindValue(':passwd', $devPassword, SQLITE3_TEXT);
+$stmt->bindValue(':email', 'admin@gmail.com', SQLITE3_TEXT);
+$stmt->bindValue(':isAdmin', 0, SQLITE3_INTEGER);
 
+$stmt->execute();
 
-$conn->close();
 
 ?>

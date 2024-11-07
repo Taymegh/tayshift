@@ -1,6 +1,31 @@
 
 <?php
     include("../Data/connectDataBase.php");
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    
+        $stmt = $conn->prepare('SELECT * FROM users WHERE username = :username');
+        $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+    
+        $result = $stmt->execute();
+        $row = $result->fetchArray(SQLITE3_ASSOC);
+    
+        if ($row) {
+            if (password_verify($password, $row['passwd'])) {
+                $_SESSION['username'] = $row['username'];
+                echo "trouvé!";
+            } else {
+                echo "Utilisateur ou mot de passe incorrect.";
+            }
+        } else {
+            echo "Utilisateur ou mot de passe incorrect.";
+        }
+    
+        $conn->close();
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +47,14 @@
           <div class="card-body">
               <p class="card-text HappySelfieFont">Transferez vos fichiers, ou que vous soyez.</p>
 
-              <form>
+              <form method="post" action=""> 
                   <div class="mb-3">
                       <label for="username" class="form-label visually-hidden">Nom d'utilisateur</label>
-                      <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur">
+                      <input type="text" class="form-control" name="username" placeholder="Nom d'utilisateur">
                   </div>
                   <div class="mb-3">
                       <label for="password" class="form-label visually-hidden">Mot de passe</label>
-                      <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+                      <input type="password" class="form-control" name="password" placeholder="Mot de passe">
                   </div>
                   <button type="submit" class="btn btn-primary w-100">Se connecter</button>
               </form>
