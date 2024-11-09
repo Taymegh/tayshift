@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tayshift</title>
     <link href="../bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="Style/accueil.css">
 </head>
 <body>
@@ -47,7 +48,14 @@
                 </div>
             </div>
         </nav>
-        
+
+
+        <div class="col-6 text-center mt-3 border border-primary mx-auto">
+            <i class="bi bi-file-earmark-arrow-down fs-1"></i> 
+        </div>
+
+
+
     </div>
     <script src="../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
