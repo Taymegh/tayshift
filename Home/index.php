@@ -2,9 +2,9 @@
 <?php
     include("../Data/connectDataBase.php");
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
     
         $stmt = $conn->prepare('SELECT * FROM users WHERE username = :username');
         $stmt->bindValue(':username', $username, SQLITE3_TEXT);
@@ -14,8 +14,14 @@
     
         if ($row) {
             if (password_verify($password, $row['passwd'])) {
+                
+                session_start();
+                session_regenerate_id(true);
                 $_SESSION['username'] = $row['username'];
-                echo "trouvé!";
+                $_SESSION['isAdmin'] = $row['isAdmin'] == 0 ? true : false;
+
+                echo "Connexion réussie";
+                
             } else {
                 echo "Utilisateur ou mot de passe incorrect.";
             }

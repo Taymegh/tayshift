@@ -18,7 +18,7 @@
               <p class="card-text HappySelfieFont">Transferez vos fichiers, ou que vous soyez.</p>
               <h5 class="card-title">Vous avez oublié votre mot de passe?</h5>
 
-              <form>
+              <form method="post" action="">
                     <div class="col-md-12 mb-3">
                         <label for="email" class="form-label visually-hidden">Adresse mail</label>
                         <input type="text" class="form-control" id="email" placeholder="Adresse mail">
