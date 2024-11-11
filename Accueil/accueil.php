@@ -7,6 +7,7 @@
     <link href="../bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="Style/accueil.css">
+    <script src="Script/script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -51,6 +52,7 @@
 
 
         <div class="col-6 text-center mt-3 border border-primary mx-auto">
+            <input type="file" name="file" id="file">
             <i class="bi bi-file-earmark-arrow-down fs-1"></i> 
         </div>
 
