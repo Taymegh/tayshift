@@ -11,4 +11,4 @@ portfolio/
 site/
 transfert/
 lavisan.ico
-Data/dataBase.db
+Data/*.db
