@@ -10,6 +10,7 @@ $conn = new SQLite3($dbPath);
 if (!$conn) {
     die("La connexion à la base de données a échoué : " . $conn->lastErrorMsg());
 }
+
 $conn->exec("CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL,
@@ -18,8 +19,18 @@ $conn->exec("CREATE TABLE IF NOT EXISTS users (
     isAdmin INTEGER DEFAULT 1
 )");
 
-$devPassword = password_hash("User1234", PASSWORD_DEFAULT);
+$conn->exec("CREATE TABLE IF NOT EXISTS registrationsRequests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    passwd TEXT NOT NULL,
+    request_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status TEXT DEFAULT 'en attente' -- Statut de la demande ('en attente', 'approuvée', 'rejetée')
+)");
 
+
+
+$devPassword = password_hash("User1234", PASSWORD_DEFAULT);
 $stmt = $conn->prepare("INSERT OR IGNORE INTO users (id, username, passwd, email, isAdmin)
                         VALUES (:id, :username, :passwd, :email, :isAdmin)");
 

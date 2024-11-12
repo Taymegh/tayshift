@@ -1,3 +1,51 @@
+<?php
+    include("../Data/connectDataBase.php");
+
+    session_start();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_SESSION['username'])) {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $stmt = $conn->prepare('SELECT * FROM users WHERE email = :email');
+        $stmt->bindValue(':email', $email, SQLITE3_TEXT);
+    
+        $result = $stmt->execute();
+        $row = $result->fetchArray(SQLITE3_ASSOC);
+    
+        if ($row) {
+            echo "Email déjà utilisée";
+        }
+        else {
+            $stmt = $conn->prepare('SELECT * FROM users WHERE username = :username');
+            $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+        
+            $result = $stmt->execute();
+            $row = $result->fetchArray(SQLITE3_ASSOC);
+        
+            if($row){
+                echo "Nom d'utilisateur déjà utilisé, veuillez en choisir un autre";
+            }
+
+            else {
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            
+                $stmt = $conn->prepare('INSERT INTO registration_requests (username, email, passwd, status) VALUES (:username, :email, :passwd, :status)');
+                $stmt->bindValue(':username', $username, SQLITE3_TEXT);
+                $stmt->bindValue(':email', $email, SQLITE3_TEXT);
+                $stmt->bindValue(':passwd', $hashedPassword, SQLITE3_TEXT);
+                $stmt->bindValue(':status', 'en attente', SQLITE3_TEXT);
+                $stmt->execute();
+
+                echo "Demande d'inscription soumise avec succès. En attente de validation.";
+            }
+        }
+
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
