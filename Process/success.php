@@ -53,7 +53,6 @@ $mail->Body = "
     <ul>
         <li>Login: $user</li>
         <li>Email: $usermail</li>
-        <li>Mot de passe: $pass</li>
     </ul>
 </body>
 </html> 
