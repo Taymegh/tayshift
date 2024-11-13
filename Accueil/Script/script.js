@@ -5,4 +5,8 @@ document.addEventListener('dragover', (e) =>{
 document.addEventListener('drop', (e) =>{
     document.getElementById('file').files = e.dataTransfer.files;
     e.preventDefault()
+
 });
+
+
+

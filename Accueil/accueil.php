@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-start">
+                    <ul class="navbar-nav d-flex flex-column" style="height: 100%;">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Accueil</a>
                         </li>
@@ -45,13 +45,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Espace Collaboratif</a>
                         </li>
+
+                        <li class="nav-item mt-auto">
+                            <a class="nav-link" href="../Home/index.php">Deconnexion</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
 
-        <div class="col-6 text-center mt-3 border border-primary mx-auto">
+        <div class="col-6 text-center mt-3 border border-primary mx-auto" id="filezone">
             <input type="file" name="file" id="file">
             <i class="bi bi-file-earmark-arrow-down fs-1"></i> 
         </div>
