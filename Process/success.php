@@ -1,37 +1,25 @@
 <?php 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-$user = $_POST['user'];
-$usermail = $_POST['mail'];
-$pass= $_POST['passwd'];
+$user = htmlspecialchars($_POST['user']);
+$usermail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);
+$pass= password_hash($_POST['passwd'], PASSWORD_DEFAULT);
 
-
+if (!$usermail) {
+    die("Adresse email invalide.");
+}
 
 $file = 'data.json';
-
 $newData = array(
     'login' => $user,
     'email' => $usermail,
     'password' => $pass
 );
 
-if (file_exists($file)) {
-    $currentData = json_decode(file_get_contents($file), true);
-    if (!$currentData) {
-        $currentData = array(); 
-    }
-} else {
-    $currentData = array(); 
-}
-
-
+$currentData = file_exists($file) ? json_decode(file_get_contents($file), true) ?? [] : [];
 $currentData[] = $newData;
-
 file_put_contents($file, json_encode($currentData, JSON_PRETTY_PRINT));
 
 require 'PHPMailer/src/Exception.php';
@@ -75,25 +63,15 @@ $mail->send();
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Demande de compte envoyée</title>
 </head>
 <body>
-    <h1>Demande de compte envoyée!</h1>
-    <h2>Un mail de confirmation vous a été envoyé à: <?php echo $_POST['mail']; ?></h2>
-    <!-- <h2>Récapitulatif de votre demande:</h2>
-    <ul>
-        <li>Login:<?php echo $_POST['user']; ?></li>
-        <li>Email:<?php echo $_POST['mail']; ?></li>
-        <li>Mot de passe:<?php echo $_POST['passwd']; ?></li>
-    </ul> -->
+    <h1>Demande de compte envoyée !</h1>
+    <h2>Un mail de confirmation vous a été envoyé à : <?php echo htmlspecialchars($_POST['mail']); ?></h2>
 </body>
 </html>

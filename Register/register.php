@@ -65,7 +65,7 @@
           <div class="card-body">
               <p class="card-text HappySelfieFont">Transferez vos fichiers, ou que vous soyez.</p>
 
-              <form>
+              <form method="post" action="">
                 <div class="row mb-3">
                     <div class="col-md-6 mb-3">
                         <label for="username" class="form-label visually-hidden">Nom d'utilisateur</label>
