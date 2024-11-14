@@ -2,9 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$dataDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Data';
+if (!is_dir($dataDir)) { mkdir($dataDir, 0777, true); }
+$dbPath = $dataDir . DIRECTORY_SEPARATOR . 'dataBase.db'; 
 
-
-$dbPath = __DIR__ . DIRECTORY_SEPARATOR . 'dataBase.db';
 $conn = new SQLite3($dbPath);
 
 if (!$conn) {
@@ -25,10 +26,8 @@ $conn->exec("CREATE TABLE IF NOT EXISTS registrationsRequests (
     email TEXT NOT NULL UNIQUE,
     passwd TEXT NOT NULL,
     request_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status TEXT DEFAULT 'en attente' -- Statut de la demande ('en attente', 'approuvée', 'rejetée')
+    status TEXT DEFAULT 'en attente'
 )");
-
-
 
 $devPassword = password_hash("User1234", PASSWORD_DEFAULT);
 $stmt = $conn->prepare("INSERT OR IGNORE INTO users (id, username, passwd, email, isAdmin)
@@ -41,6 +40,4 @@ $stmt->bindValue(':email', 'admin@gmail.com', SQLITE3_TEXT);
 $stmt->bindValue(':isAdmin', 0, SQLITE3_INTEGER);
 
 $stmt->execute();
-
-
 ?>
