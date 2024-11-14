@@ -30,7 +30,7 @@
             else {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             
-                $stmt = $conn->prepare('INSERT INTO registration_requests (username, email, passwd, status) VALUES (:username, :email, :passwd, :status)');
+                $stmt = $conn->prepare('INSERT INTO registrationsRequests (username, email, passwd, status) VALUES (:username, :email, :passwd, :status)');
                 $stmt->bindValue(':username', $username, SQLITE3_TEXT);
                 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
                 $stmt->bindValue(':passwd', $hashedPassword, SQLITE3_TEXT);
