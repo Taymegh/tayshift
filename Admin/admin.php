@@ -12,19 +12,6 @@ $registrations = [];
 while ($row = $stmt->fetchArray(SQLITE3_ASSOC)) {
     $registrations[] = $row;
 }
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status']) && isset($_POST['request_id'])) {
-    $newStatus = $_POST['status'];
-    $requestId = $_POST['request_id'];
-
-    $updateStmt = $conn->prepare("UPDATE registrationsRequests SET status = :status WHERE id = :id");
-    $updateStmt->bindValue(':status', $newStatus, SQLITE3_TEXT);
-    $updateStmt->bindValue(':id', $requestId, SQLITE3_INTEGER);
-    $updateStmt->execute();
-
-    header("Location: admin_registration.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['status']) && isset($_P
                     <td><?= htmlspecialchars($registration['request_date']) ?></td>
                     <td><?= htmlspecialchars($registration['status']) ?></td>
                     <td>
-                        <form method="post" style="display:inline;">
+                        <form method="" style="display:inline;">
                             <input type="hidden" name="request_id" value="<?= $registration['id'] ?>">
                             <button type="submit" name="status" value="approuvée" class="btn btn-success btn-sm">Approuver</button>
                             <button type="submit" name="status" value="rejetée" class="btn btn-danger btn-sm">Rejeter</button>

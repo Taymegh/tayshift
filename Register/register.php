@@ -35,10 +35,14 @@
                 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
                 $stmt->bindValue(':passwd', $hashedPassword, SQLITE3_TEXT);
                 $stmt->bindValue(':status', 'en attente', SQLITE3_TEXT);
-                $stmt->execute();
-
-                echo "Demande d'inscription soumise avec succès. En attente de validation.";
+            
+                if ($stmt->execute()) {
+                    echo "Demande d'inscription soumise avec succès. En attente de validation.";
+                } else {
+                    echo "Erreur lors de l'insertion de la demande d'inscription.";
+                }
             }
+            
         }
 
     }

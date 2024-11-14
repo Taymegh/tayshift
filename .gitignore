@@ -12,3 +12,4 @@ site/
 transfert/
 lavisan.ico
 Data/*.db
+Data/dataBase.db
