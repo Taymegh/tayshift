@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 
 
-$dbPath = 'dataBase.db';
+$dbPath = __DIR__ . DIRECTORY_SEPARATOR . 'dataBase.db';
 $conn = new SQLite3($dbPath);
 
 if (!$conn) {
