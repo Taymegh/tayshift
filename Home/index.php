@@ -23,7 +23,7 @@
                 if ($_SESSION['isAdmin']) {
                     header("Location: ../Admin/admin.php"); 
                 } else {
-                    // header("Location: ../Home/user_dashboard.php"); 
+                    header("Location: ../Accueil/accueil.php"); 
                 }
                 
             } else {
