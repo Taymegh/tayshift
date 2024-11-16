@@ -85,7 +85,7 @@ while ($row = $stmt->fetchArray(SQLITE3_ASSOC)) {
                     <td><?= htmlspecialchars($registration['request_date']) ?></td>
                     <td><?= htmlspecialchars($registration['status']) ?></td>
                     <td>
-                        <form method="" style="display:inline;">
+                        <form method="post" action="traitement.php" style="display:inline;">
                             <input type="hidden" name="request_id" value="<?= $registration['id'] ?>">
                             <button type="submit" name="status" value="approuvée" class="btn btn-success btn-sm">Approuver</button>
                             <button type="submit" name="status" value="rejetée" class="btn btn-danger btn-sm">Rejeter</button>
