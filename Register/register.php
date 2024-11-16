@@ -30,15 +30,19 @@
             else {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             
-                $stmt = $conn->prepare('INSERT INTO registration_requests (username, email, passwd, status) VALUES (:username, :email, :passwd, :status)');
+                $stmt = $conn->prepare('INSERT INTO registrationsRequests (username, email, passwd, status) VALUES (:username, :email, :passwd, :status)');
                 $stmt->bindValue(':username', $username, SQLITE3_TEXT);
                 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
                 $stmt->bindValue(':passwd', $hashedPassword, SQLITE3_TEXT);
                 $stmt->bindValue(':status', 'en attente', SQLITE3_TEXT);
-                $stmt->execute();
-
-                echo "Demande d'inscription soumise avec succès. En attente de validation.";
+            
+                if ($stmt->execute()) {
+                    echo "Demande d'inscription soumise avec succès. En attente de validation.";
+                } else {
+                    echo "Erreur lors de l'insertion de la demande d'inscription.";
+                }
             }
+            
         }
 
     }
@@ -69,18 +73,18 @@
                 <div class="row mb-3">
                     <div class="col-md-6 mb-3">
                         <label for="username" class="form-label visually-hidden">Nom d'utilisateur</label>
-                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur">
+                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur" name="username">
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label visually-hidden">Adresse mail</label>
-                        <input type="text" class="form-control" id="email" placeholder="Adresse mail">
+                        <input type="text" class="form-control" id="email" placeholder="Adresse mail" name="email">
                     </div>
                 </div>
 
 
                   <div class="mb-3">
                       <label for="password" class="form-label visually-hidden">Mot de passe</label>
-                      <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+                      <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password">
                   </div>
 
                   <button type="submit" class="btn btn-primary w-100">Créer compte</button>

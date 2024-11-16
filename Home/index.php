@@ -20,7 +20,11 @@
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['isAdmin'] = $row['isAdmin'] == 0 ? true : false;
 
-                echo "Connexion réussie";
+                if ($_SESSION['isAdmin']) {
+                    header("Location: ../Admin/admin.php"); 
+                } else {
+                    // header("Location: ../Home/user_dashboard.php"); 
+                }
                 
             } else {
                 echo "Utilisateur ou mot de passe incorrect.";
