@@ -56,9 +56,13 @@
 
 
         <div class="col-6 text-center mt-3 border border-primary mx-auto" id="filezone">
-            <input type="file" name="file" id="file">
+            <form action="traitement.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="file[]" id="file" multiple>
+                <input type="submit" value="Valider">
+            </form>
             <i class="bi bi-file-earmark-arrow-down fs-1"></i> 
         </div>
+        <ul id="liste"></ul>
 
 
 
